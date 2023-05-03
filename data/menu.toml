@@ -1,0 +1,69 @@
+[[entries]]
+title = "links"
+
+  [[entries.entries]]
+  title = "the space program"
+  url = "https://program.rhahi.space"
+
+  [[entries.entries]]
+  title = "mission archive"
+  url = "https://mission.rhahi.space"
+
+  [[entries.entries]]
+  title = "API docs"
+  url = "https://doc.rhahi.space"
+
+[[entries]]
+title = "browse"
+
+  [[entries.entries]]
+  title = "all posts in chronological order"
+  url = "posts"
+
+  [[entries.entries]]
+  title = "tags"
+  url = "tags"
+
+  [[entries.entries]]
+  title = "series"
+  url = "series"
+
+  [[entries.entries]]
+  title = "rss"
+  url = "index.xml"
+
+[[entries]]
+title = "blog"
+
+  [entries.post_list]
+  section = "blog"
+
+[[entries]]
+title = "dream"
+
+  [entries.post_list]
+  section = "dream"
+  limit = 5
+  show_more = true
+  show_more_text = "more..."
+  show_more_url = "dream"
+
+[[entries]]
+title = "learn"
+
+  [entries.post_list]
+  section = "learn"
+  limit = 5
+  show_more = true
+  show_more_text = "more..."
+  show_more_url = "learn"
+
+[[entries]]
+title = "apply"
+
+  [entries.post_list]
+  section = "apply"
+  limit = 5
+  show_more = true
+  show_more_text = "more..."
+  show_more_url = "apply"

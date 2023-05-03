@@ -1,0 +1,7 @@
+baseURL: 'https://repl.rhahi.space/'
+languageCode: 'en-us'
+title: 'Read, Evaluate, Print, Loop'
+theme: 'no-style-please'
+taxonomies:
+  tag: tags
+  series: series
