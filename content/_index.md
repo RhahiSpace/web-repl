@@ -15,7 +15,6 @@ draft: false
 """
 struct Blog
     author = "Rhahi"
-    github = "https://github.com/Rhahi"
-    project_root = "https://program.rhahi.space"
+    github = "https://github.com/RhahiSpace"
 end
 ```

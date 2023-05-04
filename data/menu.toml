@@ -1,17 +1,17 @@
-[[entries]]
-title = "links"
+# [[entries]]
+# title = "links"
 
-  [[entries.entries]]
-  title = "the space program"
-  url = "https://program.rhahi.space"
+  # [[entries.entries]]
+  # title = "the space program"
+  # url = "https://program.rhahi.space"
 
-  [[entries.entries]]
-  title = "mission archive"
-  url = "https://mission.rhahi.space"
+  # [[entries.entries]]
+  # title = "mission archive"
+  # url = "https://mission.rhahi.space"
 
-  [[entries.entries]]
-  title = "API docs"
-  url = "https://doc.rhahi.space"
+  # [[entries.entries]]
+  # title = "API docs"
+  # url = "https://doc.rhahi.space"
 
 [[entries]]
 title = "browse"
