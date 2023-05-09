@@ -18,7 +18,7 @@ title = "browse"
 
   [[entries.entries]]
   title = "all posts in chronological order"
-  url = "posts"
+  url = "all"
 
   [[entries.entries]]
   title = "tags"
