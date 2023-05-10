@@ -1,5 +1,5 @@
 ---
-title: "Automated testing"
+title: "automated testing"
 date: 2023-05-04T00:22:23+02:00
 mathjax: false
 draft: false

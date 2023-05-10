@@ -1,5 +1,5 @@
 ---
-title: "Remote Logging"
+title: "how RemoteLogging.jl works"
 date: 2023-05-10T00:01:40+02:00
 mathjax: false
 draft: false

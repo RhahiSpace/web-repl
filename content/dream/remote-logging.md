@@ -1,5 +1,5 @@
 ---
-title: "Remote Logging"
+title: "remote logging"
 date: 2023-05-05T17:30:38+02:00
 mathjax: false
 draft: false
