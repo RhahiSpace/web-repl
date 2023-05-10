@@ -1,6 +1,6 @@
 ---
 title: "setup self hosted CI server"
-date: 2023-05-04T21:42:51+02:00
+date: 2023-05-10
 mathjax: false
 draft: false
 series: infrastructure
