@@ -12,7 +12,7 @@ tags: [julia, libraries]
 
 RemoteLogging library is about sending log messages over the network. For context, it is not about sending logs over log aggregators with a nice looking dashboard. It is simply detaching my main program (where the REPL sits) from major stream of logs. Otherwise, I will get spammed by the logs as soon as I do *anything*!
 
-Like many of my projects, the first implementation was idotic, awkward, and inefficient. That was last year. My Julia skills haven't improved much since, but I have fresh eyes and new ideas.
+Like many of my projects, the first implementation was idiotic, awkward, and inefficient. That was last year. My Julia skills haven't improved much since, but I have fresh eyes and new ideas.
 
 ## The business logic
 
