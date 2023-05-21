@@ -33,12 +33,6 @@ title = "browse"
   url = "index.xml"
 
 [[entries]]
-title = "blog"
-
-  [entries.post_list]
-  section = "blog"
-
-[[entries]]
 title = "dream"
 
   [entries.post_list]
@@ -67,3 +61,11 @@ title = "apply"
   show_more = true
   show_more_text = "more..."
   show_more_url = "apply"
+
+[[entries]]
+title = "fly"
+
+  [entries.post_list]
+  limit = 5
+  section = "mission"
+  show_more_text = "more..."
