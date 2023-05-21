@@ -4,7 +4,7 @@ date: 2023-05-10T00:01:40+02:00
 mathjax: false
 draft: false
 series: telemetry
-tags: [julia, libraries]
+tags: [julia, library]
 ---
 
 > Warning: This post is not beginner-friendly, and require experience with Julia, ProgressLogging and LoggingExtras.
