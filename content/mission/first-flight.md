@@ -114,7 +114,7 @@ The second flight was a success.
 
 ## Data
 
-Here is the data collected by both flights. The collected data includes altitude, velocity, thrust, mass, and drag. The collected atmospheric data will be useful measure how the rocket performed in terms of aerodynamic loss versus thrust.
+Here is the data collected by both flights. The collected data includes altitude (m), velocity (m/s), thrust (N), mass (kg), and drag (N). The collected atmospheric data will be useful measure how the rocket performed in terms of aerodynamic loss versus thrust.
 
 I forgot to include atmospheric density in the measurements, so I will include that in Karman 3.
 
