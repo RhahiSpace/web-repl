@@ -67,5 +67,5 @@ title = "fly"
 
   [entries.post_list]
   limit = 5
-  section = "mission"
+  section = "fly"
   show_more_text = "more..."

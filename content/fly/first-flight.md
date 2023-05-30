@@ -1,10 +1,10 @@
 ---
-title: "first flight"
+title: "suborbital/first flight"
 date: 2023-05-26
 mathjax: false
 draft: false
 series: karman
-tags: [sounding-rocket]
+tags: [mission, suborbital]
 ---
 
 ## Fly to the Karman line
@@ -18,7 +18,7 @@ For a rocket nerd's perspective, it would be quite a boring mission. However, fo
 1. Reach the Karman line.
 1. Log the rocket's debug messages and other telemetry (altitude, speed, etc.)
 1. Implement test scripts (runtests.jl) to test against regressions in library functions.
-1.Learn how to work cameras for some public footage and create photo/video records.
+1. Learn how to work cameras for some public footage and create photo/video records.
 
 Step 3 here is the most crucial one. I do not know if the functions I create are going to work well. As I run the rockets, I will have to go back and fix them. In this unstable code base, regression is common -- features that worked in the past might break later. To remedy this situation, I need to test my code and do it often.
 
