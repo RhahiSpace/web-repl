@@ -116,6 +116,8 @@ end
 
 The code is written in an async-await style. First, the stage 1 and stage 2 are queued to the task list. After solid stage times out, stage 1 is triggered. Stage 2 is triggered either when stage 1 times out, or when the watchdog started in stage 1 detects engine flameout.
 
+[Mission](https://github.com/RhahiSpace/MissionLib.jl/tree/main/Karman2) [Library](https://github.com/RhahiSpace/SpaceLib.jl/tree/karman2)
+
 ## Flight
 
 The first flight had an engine failure, but the second stage kicked in immediately and salvaged a bit more flight time.
