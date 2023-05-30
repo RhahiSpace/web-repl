@@ -60,7 +60,7 @@ As I expand the libraries, there will be more test files.
 
 ## Mission plan
 
-{{<image src="/craftfiles/Karman 2.png"
+{{<image src="/craftfiles/Karman 1.png"
     alt="rocket" maxw="7em" class="right-text">}}
 
 ### Rocket

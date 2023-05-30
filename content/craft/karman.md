@@ -8,12 +8,12 @@ tags: [craft, karman]
 
 {{<quote text="Low-tech, two-stage sounding rockets." class="center">}}
 
-{{<image src="/craftfiles/Karman 2.png"
+{{<image src="/craftfiles/Karman 1.png"
     alt="rocket" maxw="7em" class="right-text">}}
 ## Karman 1
 {{<quote text="Made of steel. Heavy, but it will fly." class="dark-3 left">}}
 
-{{<download src="/craftfiles/Karman 2.craft">}}
+{{<download src="/craftfiles/Karman 1.craft">}}
 
 - Used for Karman 1 and 2.
 - Two stage rockets with a single kick stage.
