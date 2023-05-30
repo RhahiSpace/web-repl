@@ -50,29 +50,27 @@ The mission is to just to go up, and then blow up.
 
 ### Code
 
+Here is the simplified version of the mission code. The actual code has a bit more supporting structures for signaling between stages.
+
 ```jl
-function launch(sp::Spacecraft, e1::RealEngine, e2::RealEngine)
-    (@async stage1(sp, e1)) |> errormonitor
-    (@async stage2(sp, e1, e2)) |> errormonitor
+function launch(sp::Spacecraft)
     stage!(sp)
     delay(sp.ts, 0.55, "SRB")
-    trigger(sp, :stage1; name="launch")
+    notify(...)
 end
 
 function stage1(sp::Spacecraft, e1::RealEngine)
-    waitfor(sp, :stage1)
+    wait(...)
     ignite!(sp, e1)
     delay(sp.ts, 0.2, "E1 ignition")
     stage!(sp)
-    (@async stage_watchdog(sp, e1, :stage2, setevent(sp, :s1watch))) |> errormonitor
-    delay(sp.ts, 47.5, "Stage 1"; interrupt=setevent(sp, :s1delay))
-    trigger(sp, :s1watch; name="stage1")
-    trigger(sp, :stage2; name="stage1")
+    @async stage_watchdog(...)
+    delay(sp.ts, 47.5, "Stage 1")
+    notify(...)
 end
 
 function stage2(sp::Spacecraft, e1::RealEngine, e2::RealEngine)
-    waitfor(sp, :stage2)
-    trigger(sp, :s1delay; name="stage2")
+    wait(...)
     ignite!(sp, e2)
     delay(sp.ts, 0.2, "E2 ignition")
     shutdown!(e1)
@@ -81,24 +79,7 @@ function stage2(sp::Spacecraft, e1::RealEngine, e2::RealEngine)
 end
 ```
 
-The code is written in async-wait style. First, the stage 1 and stage 2 are queued to task list. After solid stage times out, stage 1 is triggered. Stage 2 is triggered either when stage 1 times out, or when a watchdog detects that stage 1 engine is somehow turned off.
-
-The watchdog queries the engine's state every 0.1+α seconds and then signals the next stage if anything bad happens.
-
-```jl
-function stage_watchdog(...)
-    @info "$(engine.name) watchdog activated."
-    while !isset(interrupt)
-        if thrust(engine) == 0
-            !isnothing(next) && trigger(sp, next)
-            @warn "Watchdog detected engine failure" _group=:watchdog
-            trigger(interrupt; name="watchdog")
-            return
-        end
-        delay(sp.ts, 0.09; log=false)
-    end
-end
-```
+The code is written in an async-await style. First, the stage 1 and stage 2 are queued to the task list. After solid stage times out, stage 1 is triggered. Stage 2 is triggered either when stage 1 times out, or when the watchdog started in stage 1 detects engine flameout.
 
 ## Flight
 
