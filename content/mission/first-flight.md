@@ -9,19 +9,18 @@ tags: [sounding-rocket]
 
 ## Fly to the Karman line
 
-Our mission objective is to fly a rocket to a Karman line (100 km). This is an easy mission; no re-usability, no guidance, just keep the pointy end up.
+Our mission objective is to fly a rocket to the Karman line (100 km). This is an easy mission; no re-usability, no guidance, just keep the pointy end up.
 
-For rocket nerd's perspective, it would be quite a boring mission: Reach the Karman line. However, for a software nerd's objective, there will be some more exciting motions behind the scenes.
+For a rocket nerd's perspective, it would be quite a boring mission. However, for a software nerd's objective, there will be some more exciting motions behind the scenes.
 
 ### Objectives
 
 1. Reach the Karman line.
-1. Log rocket's debug messages and other telemetry (altitude, speed, etc.)
+1. Log the rocket's debug messages and other telemetry (altitude, speed, etc.)
 1. Implement test scripts (runtests.jl) to test against regressions in library functions.
-1. This is now a public project. Learn how to work cameras for some public footage and create photo/video records.
+1.Learn how to work cameras for some public footage and create photo/video records.
 
-Step 3 here is the most crucial one. As I iterate and develop, the unstable codebase can suffer regression.
-Testing the code reduces the mistakes and assures quality of the software.
+Step 3 here is the most crucial one. I do not know if the functions I create are going to work well. As I run the rockets, I will have to go back and fix them. In this unstable code base, regression is common -- features that worked in the past might break later. To remedy this situation, I need to test my code and do it often.
 
 ## Mission plan
 
@@ -30,7 +29,7 @@ Testing the code reduces the mistakes and assures quality of the software.
 
 ### Rocket
 
-The rocket for this mission is Karman 1 and 2. They are low-tech, two-stage sounding rockets with a kick stage, statically stabilized using fins. The first stage fins are angled a few degrees to provide spin.
+The rockets for this mission are [Karman 1 and 2](/craft/karman-2). They are low-tech, two-stage sounding rockets with a kick stage, statically stabilized using fins. The first stage fins are angled a few degrees to provide spin.
 
 While having 2 liquid stages should be enough, I added a solid kick stage. It provides a powerful kick in the first second. This doesn't help much with delta-v, but shortens the time it takes for fins to spin the rocket.
 
