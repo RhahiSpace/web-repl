@@ -22,6 +22,42 @@ For a rocket nerd's perspective, it would be quite a boring mission. However, fo
 
 Step 3 here is the most crucial one. I do not know if the functions I create are going to work well. As I run the rockets, I will have to go back and fix them. In this unstable code base, regression is common -- features that worked in the past might break later. To remedy this situation, I need to test my code and do it often.
 
+## Test setup
+
+In Julia, tests are commonly organized in test/ directory with `runtests.jl` as an entry point. I am using the [SafeTestsets](https://juliapackages.com/p/safetestsets) package to create test scripts that are standalone on their own, but can also be executed by the central entry point.
+
+It accepts a few environment variables to change how the tests should be run. By default, it only runs static tests, but by setting "GROUP" environment variable to "live" or "all", I can change what kind of tests should be run.
+
+```jl
+# test/runtests.jl
+using SafeTestsets
+using SpaceLib
+using Logging
+using Test
+
+const GROUP = get(ENV, "GROUP", "static")
+
+global_logger(ConsoleLogger(Warn))
+
+@time begin
+    # static tests
+    if GROUP == "all" ||  GROUP == "static"
+        @time @safetestset "clocks" begin include("static/clocks.jl") end
+        @time @safetestset "control pipe" begin include("static/controlpipe.jl") end
+        @time @safetestset "synchronizations" begin include("static/events.jl") end
+    end
+
+    # live tests
+    if GROUP == "all" || GROUP == "live"
+        @time @safetestset "live/control pipe" begin include("live/controlpipe.jl") end
+    end
+end
+```
+
+I have organized my library's functions as `static`, `live`, and `manual`. live test requires connection to the game, while static tests require no connection and can be executed without having a running Kerbal Space Program. Manual tests will mostly be about testing user interface and graphics.
+
+As I expand the libraries, there will be more test files.
+
 ## Mission plan
 
 {{<image src="/craftfiles/Karman 2.png"
