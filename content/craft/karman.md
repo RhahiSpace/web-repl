@@ -6,11 +6,12 @@ draft: true
 tags: [craft, karman]
 ---
 
-{{<centerquote text="Low-tech, two-stage sounding rockets.">}}
+{{<quote text="Low-tech, two-stage sounding rockets." class="center">}}
 
 {{<image src="/craftfiles/Karman 2.png"
     alt="rocket" maxw="7em" class="right-text">}}
-## Karman type 1
+## Karman 2
+{{<quote text="Where did Karman 1 go?" class="dark-3 left">}}
 
 {{<download src="/craftfiles/Karman 2.craft">}}
 
@@ -26,7 +27,9 @@ tags: [craft, karman]
 {{<image src="/craftfiles/Karman 3.png"
     alt="rocket" maxw="7em" class="right-text">}}
 
-## Karman type 2
+## Karman 3
+
+{{<quote text="Let the autopilot handle the ignition timing." class="dark-3 left">}}
 
 {{<download src="/craftfiles/Karman 3.craft">}}
 
