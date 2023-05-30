@@ -24,12 +24,12 @@ Step 3 here is the most crucial one. I do not know if the functions I create are
 
 ## Mission plan
 
-{{<image src="/images/mission/first-flight/front_Karman 1_1.png"
+{{<image src="/craftfiles/Karman 2.png"
     alt="rocket" maxw="7em" class="right-text">}}
 
 ### Rocket
 
-The rockets for this mission are [Karman 1 and 2](/craft/karman-2). They are low-tech, two-stage sounding rockets with a kick stage, statically stabilized using fins. The first stage fins are angled a few degrees to provide spin.
+The rockets for this mission are [Karman](/craft/karman) 1 and 2. They are low-tech, two-stage sounding rockets with a kick stage, statically stabilized using fins. The first stage fins are angled a few degrees to provide spin.
 
 While having 2 liquid stages should be enough, I added a solid kick stage. It provides a powerful kick in the first second. This doesn't help much with delta-v, but shortens the time it takes for fins to spin the rocket.
 
