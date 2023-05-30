@@ -28,7 +28,7 @@ tags: [craft, karman]
 
 ## Karman type 2
 
-{{<download src="/craftfiles/Karman 2.craft">}}
+{{<download src="/craftfiles/Karman 3.craft">}}
 
 - Used for Karman 3.
 - Two stage rockets with two kick stages.
