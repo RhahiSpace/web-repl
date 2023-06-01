@@ -22,6 +22,7 @@ Ordered by importance, descending.
 - SpaceLib: The main library
 - KerbalGuidance: Optimal trajectory
 - MissionLib: Mission scripts
+- KerbalMath: Some common math operations
 - RemoteLogging: Remotely get debug logs and telemetry
 - MissionControl: UI for SpaceLib
 - KerbalAssembly: Build optimal rocket with given constraints
@@ -35,7 +36,7 @@ Ordered by importance, descending.
 ## Programming
 
 - Write programs with REPL and Notebook usage in mind.
-- Utilize ErrorTypes.jl
+- Write tests, and do continuous integration.
 - Automatic documentation
 - Mission recovery and abort modes
 - Tolerance to high latency
