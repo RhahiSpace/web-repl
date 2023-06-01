@@ -47,8 +47,7 @@ tags: [craft, karman]
 
 {{<download src="/craftfiles/Karman 5.craft" name="Karman 5">}}
 
-- Two stage rockets with two kick stages.
-- Designed to reach 140 km altitude and return with experiments.
+- Two stage rockets with one kick stage.
 - Kick stage engines: Tiny Tim Booster
 - Stage 1 engine: XASR-1
 - Stage 2 engine: XASR-1
