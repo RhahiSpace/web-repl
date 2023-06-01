@@ -2,7 +2,7 @@
 title: "suborbital/sample return"
 date: 2023-05-30
 mathjax: false
-draft: true
+draft: false
 series: karman
 tags: [mission, suborbital]
 ---
@@ -20,23 +20,23 @@ Last time, we touched the edge of space and blew up. This time, we will come bac
 
 ## API for part/modules
 
-In the previous mission, I used time-based delay to stage engines, with a watchdog to do emergency staging if something went wrong. This time, I am going to stage engines based on remaining fuel and the engine's active status. To read about how I implemented the engine API, see [engine abstraction and caching](/apply/engine-abstraction)
+In the previous mission, I used time-based delay to stage engines with a watchdog to do emergency staging if something went wrong. This time, I removed the watchdog and staged based on remaining fuel and the engine status. This lets us keep running the rocket as long as possible and utilize overburn if needed. To read about how I implemented the engine API, see [engine abstraction and caching](/apply/engine-abstraction)
 
 ## Interactive rocket control
 
-Long since I started *Kerbal Space Programming*, I wanted to have full automated missions, while keeping the ability to pause the program an re-program the rocket as needed without stopping the program entirely.
+Ever since I started *Kerbal Space Programming*, I wanted to do full automated missions. Sometimes, though, it's nice to be able to pause the program in the middle without stopping the program entirely.
 
-I see two approaches to this: [Jupyter](https://en.wikipedia.org/wiki/Project_Jupyter) and [REPL](https://docs.julialang.org/en/v1/stdlib/REPL/). Jupyter in VSCode has some limitations (or bugs) that makes it less great compared to Jupyter+Python in VSCode, but it still makes interactive development much easier. I also use REPL, but in this mission I limited myself to Jupyter to have a more focused mission.
+I see two approaches to achieve this: [Jupyter](https://en.wikipedia.org/wiki/Project_Jupyter) and [REPL](https://docs.julialang.org/en/v1/stdlib/REPL/). Jupyter+Julia in VSCode has a bug that makes it less great compared to Jupyter+Python, but it still makes interactive development much easier. I also use REPL, but in this mission I limited myself to Jupyter to have a more focused mission.
 
 ### The Jupyter bug
 
-Jupyter notebook in VSCode has a bug where interrupting or stopping kernel will not stop the UI. The cell does stop, but the UI will run forever, blocking further execution. This is a problem when I want to run some busy loop and then stop it to start over. If I run the loop in an async block, however, the cell will stop as soon as the task is declared, with the scheduled task running in the background. This is exactly what I am going to do; run every maneuver in async, and then somehow control them via Julia's  signaling mechanisms.
+The bug is that when interrupting or stopping kernel, the UI will keep going. The cell does stop, but the UI runs forever, blocking further execution. This is a problem when I want to run some busy loop and then stop it to do something else. If I run the loop in an async block, however, the cell will stop as soon as the task is declared, with the scheduled task running in the background. This is exactly what I am going to do; run every maneuver in async, and then somehow control them via Julia's  signaling mechanisms.
 
 ### The signaling mechanism
 
-Take a look at stage 1 part of Karman 5 mission.
+Here is a stage1 code of Karman 5 mission as an example.
 
-I first ignite the rocket engine, and then have a stage separation. The `wait_for_burnout` function will constantly check the remaining fuel and return if the fuel runs out or stops changing (indicating engine burnout).
+I first ignite the rocket engine, and then do a stage separation. The `wait_for_burnout` function will constantly check the remaining fuel and return if the fuel runs out or stops changing (indicating engine burnout).
 
 ```julia
 # Karman5.ipynb
@@ -54,7 +54,7 @@ function stage1(sp::Spacecraft)
 end
 ```
 
-The past parameter contains `event!(sp, :s1)`. In SpaceLib, there is a struct called `EventCondition`, which is a combination of `Event` and `Condition` of Julia. Event is a level-triggered source, where once you `set` an event it will stay set and all other tasks can see it set. `Condition` is an edge-triggered source, where only the tasks that are watching it will know when the condition is notified, and future monitors will not see the trigger.
+The past parameter contains `event!(sp, :s1)`. In SpaceLib, I made a struct called `EventCondition`, a combination of `Event` and `Condition`. Event is a level-triggered source, where once you `set` an event it will stay set and all other tasks can see it set. `Condition` is an edge-triggered source, where only the tasks that are waiting on it will get notified when the condition is triggered.
 
 ```julia
 struct EventCondition
@@ -74,7 +74,7 @@ Here are the reasons on why I want to combine the two mechanisms together:
 1. Level-trigger makes programming easier. I don't need to worry about making sure that the task already started listening before I fire the event.
 1. `Event` cannot transport extra data like `Condition` does; for example, if I trigger a stage 2 of the rocket, I might want to tell *"hey, the previous stage had a problem, so you should skip the alignment maneuver and just fire up engine ASAP"*.
 
-Wouldn't it be better if I just queue two stage 2 variants; one with regular maneuver, and another with ASAP maneuver, and trigger only the one I want? I don't know. I will figure it out when we get there!
+Wouldn't it be better if I just queue two stage 2 variants; one with regular maneuver, and another with ASAP maneuver, and trigger only the one I want? I don't know. I will figure it out when I get there!
 
 *Note: I see one potential issue where a task can get stuck if the event has been triggered right after checking `active` value. It can be remedied by using a semaphore or somehow forcing atomic operation, but I keep it as-is for now.*
 
@@ -95,9 +95,9 @@ The "small biological capsule" is supposedly holding small mammals to study the 
 
 [Craft files](/craft/karman)
 
-While carrying biological payload is not a requirement in Karman 3, I added it to collect "science" earlier (which is an in-game resource to unlock better technology). Due to the added payload, Karman 1 design is not enough to reach 140 km.
+While carrying biological payload is not a requirement in Karman 3, I added it to collect "science" earlier (which is an in-game resource to unlock better technology). Due to the added payload, Karman 1 rocket with the same payload will not reach 140 km.
 
-In Karman 5, I used the science gained to unlock an improved rocket engine, XASR-1. In real life, this engine was used for [Aerojet General X-8](https://en.wikipedia.org/wiki/Aerojet_General_X-8).
+In Karman 5, I used the science gained to unlock an improved rocket engine, XASR-1. Thanks to the improved performance, I no longer need the double kick stage.
 
 ### Program
 
@@ -108,7 +108,7 @@ In Karman 5, I used the science gained to unlock an improved rocket engine, XASR
 | Core separation      | Separate nose cone and rocket at the apoapsis |
 | Parachute deployment | -                                             |
 
-Since this is a return mission, there is no range safety step and instead we separate the core and arm parachutes, so that the small mammals can return home safely.
+Since this is a return mission, there is no range safety step. Instead, the core is separated and the parachutes are armed, so that the small mammals can return home safely.
 
 ### Code
 
@@ -177,6 +177,8 @@ end
 To make this code interactable, I wrapped the execution block in async.
 
 ```julia
+# Karman5.ipynb
+
 @async begin
     try
         stage0(sp)
@@ -191,13 +193,9 @@ To make this code interactable, I wrapped the execution block in async.
 end
 ```
 
-When the code is running this way, I cannot monitor errors using `errormonitor`. Instead, I made the code throw an error and I can check it by `wait`ing on the task.
+If for some reason I want to stop stage 1 immediately and jump to stage 2, I can open up another cell and run code `notify(sp, :s1)` so that `wait_for_burnout` function will break its loop and return.
 
-So, if for some reason I want to stop stage 1 immediately and jump to stage 2, I can open up another cell and run code
-
-`notify(sp, :s1)`
-
-so that `wait_for_burnout` function will break its loop and return.
+When the code is running this way, I cannot monitor errors using `errormonitor`. Instead, I made the code notify if there is an error, so I can check it by `wait`ing on the task.
 
 [Source code](https://github.com/RhahiSpace/MissionLib.jl/tree/main/Karman3)
 
