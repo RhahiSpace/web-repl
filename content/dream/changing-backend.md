@@ -9,15 +9,15 @@ tags: []
 
 {{<quote text="Houston, we've had a problem." class="white center" who="13">}}
 
-I started programming in Julia for about a year now, and ever since I have been playing KSP with Julia. KRPC.jl is a small independent project created by one person, and it is not without bugs. Some of them is not very critical -- it's not mission-critical that some enumerations have odd numbers, nor that decoupling a vanilla separator will raise a recoverable exception.
+I have been programming in Julia and KRPC.jl for about a year now. KRPC.jl is a small independent project created by one person, and it is not without bugs. Some of them is not very important -- it's not mission-critical that some enumerations have weird numbers, nor that decoupling a vanilla separator will raise a recoverable exception.
 
 Yesterday, I hit a mission critical bug.
 
 ## The problem
 
-I've been writing some logic for grouped control of clustered engines. You might have read how I implemented Engine API. This API works for a few engines, but when I try to fetch about 5 engines, then I get irrecoverable error from KRPC.
+I've been implementing a clustered engine API. You might have read how I implemented Engine API. This API works for a few engines, but when I try to fetch about 5 engines, then I get irrecoverable error from KRPC.
 
-What do I mean by irrecoverable? It means that something in client or server got messed up, and it will no longer respond correctly to future KRPC calls. The only possible recovery is to restart the server. This action cannot be done via KRPC, so it should either be done by hand or some kind of image detection macro. I've been aware of this kind of problem, but it only happened when I re-wind and try to keep using the same connection for the next launch. So not a big deal. One day I might actually make an automation that presses that stop/start button for me from Julia!
+What do I mean by irrecoverable? It means that something in the client or the server got messed up, and it will no longer respond correctly to future KRPC calls. The only possible recovery is to restart the server, which is done by hand. I've been aware of this problem, but it only happened when I re-wind and use the same connection for the next launch. Not a big deal. I restart the client and everything is ok. One day I might actually make an automation that presses that stop/start button for me!
 
 ## The solution
 
