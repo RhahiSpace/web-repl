@@ -1,5 +1,5 @@
 ---
-title: "changing the backend"
+title: "troubleshooting KRPC.jl"
 date: 2023-06-06
 mathjax: false
 draft: false
@@ -50,6 +50,14 @@ This is the spicy option. Part of the reason why I picked Julia was that I have 
 
 The problem with Rust program client is that I will lose the ability to interactively control the rocket. Not a big issue, but it's one feature lost.
 
-## The conclusion?
+## The fix
 
-Not decided. Come back later.
+I spent about 8 hours trying to troubleshoot. Stepping through the code, trying to sniff the signals with Wireshark (I couldn't figure that out), just staring at the code, and sleeping over it. Each attempt and failure got me more accustomed to the client code, and finally I understood what went wrong.
+
+The problem was that when KRPC.jl generates a new request, the request gets an ID. When the ID reaches 128, KRPC.jl breaks down, and no further new request can be made. (I can still reuse the old ones). 128 is an important number here, because it is half of 256, size of a `UInt8`. During the "try and fail" phases, I learned that ProtoBuf encodes the given data into arrays of `UInt8`s. While looking at some of ProtoBuf's code to convert numbers, I found a method
+
+`write_varint` and `write_fixed`. `write_varint` splits given integer data into 7-bit chunks, with the first bit representing end of data or continuation of data. KRPC.jl was using `write_fixed` to convert its data, which does not follow the 7-bit rule. Therefore, when the ID reaches 128, The first bit flips to 1, saying "the next byte is also a data". This is not true, and causes the KRPC server to misinterpret the ID and I get wrong objects back. Most of the case, this will be an object of the wrong type, and I get a type related error.
+
+The fix is to change the method `KRPC.getWireValue` for integers to use `write_varint`. This may introduce a bug, because there might be other cases where it must use the fixed-integer form. Then, I will either have write a handler for the Request dispatch to identify when the field is an ID and only use `write_varint`.
+
+But for now, the problem is solved, and I can continue developing the cluster engine.
