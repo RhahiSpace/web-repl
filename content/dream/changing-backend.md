@@ -30,7 +30,7 @@ I see 4 outs to this problem. Let's discuss them one by one.
 
 ### Fix KRPC.jl
 
-This has been my go-to-approach. I spent whole day trying to identify the bug troubleshoot, but I was not able to fix it. Maybe I should spend more time to fix? For now, I am waiting for the author to respond to the [issue](https://github.com/BenChung/KRPC.jl/issues/16).
+This has been my go-to-approach. I spent a whole day trying to identify and fix the bug, but I was not able to find the problem. Maybe I should spend more time to fix? For now, I am waiting for the author to respond to the [issue](https://github.com/BenChung/KRPC.jl/issues/16).
 
 ### Use Pycall
 
