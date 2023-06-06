@@ -48,6 +48,8 @@ I do speak Python, but writing SpaceLib in Python is not something I am looking 
 
 This is the spicy option. Part of the reason why I picked Julia was that I have access to various high-performant numerical software suite at hand, with good prototyping speed and without the high learning curve of Rust. Maybe it is a great opportunity, still. After all, programming in KSP is how I learned programming in general. I am a bit concerned about the maturity and buggy-ness of the Rust crate for KRPC, though, so I will ask around.
 
+The problem with Rust program client is that I will lose the ability to interactively control the rocket. Not a big issue, but it's one feature lost.
+
 ## The conclusion?
 
 Not decided. Come back later.
