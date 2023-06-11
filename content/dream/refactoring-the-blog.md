@@ -32,3 +32,7 @@ I think it will be nice to provide a natural narrative to read the entire blog f
 The linear story that connects 2, 3, 4 becomes a "series".
 
 I think this structure can work.
+
+## What happened to the previous posts?
+
+I wiped out previous posts. They will remain in git history, so if you are returning for a specific post, take a look in [here](https://github.com/RhahiSpace/web-repl), it will be buried in the git history. Some of them will return as they fit with the story outlined in *Dream*.
