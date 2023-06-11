@@ -7,13 +7,11 @@ series:
 tags: []
 ---
 
-Hello Kerbonauts and strangers on the Internet.
-
-Recently, RP-1 releases a version 2 of the mod. The already excellent mod looks even better now, I am starting anew in this version, and I am rebooting this blog. Here are my thoughts on how this blog should be written and read.
-
 ## For the readers
 
-### How should you read this blog?
+Hello Kerbonauts and strangers on the Internet. In this blog, I play Kerbal Space Program with [RP-1](https://github.com/KSP-RO/RP-1/wiki/Introduction-and-Overview) mod, and write about developing rocket control software using [KRPC](https://krpc.github.io/krpc/) mod.
+
+### How to read this blog
 
 - If you want a natural flow of reading, take a look at "Dream"
 - If you are interested in specific problems or topics, dive right into "Build", "Apply", or "Learn".
@@ -24,7 +22,13 @@ Recently, RP-1 releases a version 2 of the mod. The already excellent mod looks 
 
 I wiped out previous posts. They will remain in git history, so if you are returning for a specific post, look at the git history. Some of them will return as they fit with the story outlined in *Dream*.
 
+### What programming language will I use and why?
+
+I will be writing mostly in Julia, because it is easy to write, is fast, and has access to various scientific software packages. Everything will be open source.
+
 ## For the author
+
+Recently, RP-1 released a version 2 of the mod. The already excellent mod looks even better now, I am starting anew in this version, and I have rebooted this blog. Here are my thoughts on how this blog should be written and read.
 
 ### What kind of blog should REPL be?
 
