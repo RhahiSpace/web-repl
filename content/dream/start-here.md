@@ -26,6 +26,17 @@ I wiped out previous posts. They will remain in git history, so if you are retur
 
 I will be writing mostly in Julia, because it is easy to write, is fast, and has access to various scientific software packages. Everything will be open source.
 
+### The house rule
+
+In RP-1, there are two types of flights: test flight and real flight. In test flight, or "Simulation Mode", we can build, test, and revert launches without any risk to the program. In real flight, in-game time and budget, as well as the lives of pilots (if any) are on the line. I have two rules to give some sense of gravity into the game play, keeping myself more cautious.
+
+1. Test flights are free.
+1. No reverts are allowed in real flights, with exceptions if the missions are disrupted by:
+    - 1: bugs in the game itself.
+    - 2: irrecoverable KRPC error.
+    - 3: computer or KSP crash
+    - 4: if it was otherwise necessary to do so.
+
 ## For the author
 
 Recently, RP-1 released a version 2 of the mod. The already excellent mod looks even better now, I am starting anew in this version, and I have rebooted this blog. Here are my thoughts on how this blog should be written and read.
