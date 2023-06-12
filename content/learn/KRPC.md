@@ -15,11 +15,11 @@ Before I start explaining some code, it will be good to explain what is KRPC and
 {{<image src="https://ksp-kos.github.io/KOS/_images/hello_world1.png" class="right" maxw="15em" title="kOS in-game terminal">}}
 
 
-[KRPC](https://krpc.github.io/krpc/) exposes interfaces from KSP so that you can control rockets with your own program. There is a similar project, called [kOS](https://ksp-kos.github.io/KOS/), which introduces its own programming language called Kerboscript. The main advantage of kOS is that it runs within the game engine, so the interface with the game is more robust and it synchronizes with the physics very nicely that you can guarantee that your control loops will work with the right timing. It's like a [RTOS](https://en.wikipedia.org/wiki/Real-time_operating_system) of Kerbal Space Program. However, because of the need to learn its own programming language, you need to rely on libraries that other players have created. This is not ideal when you want to create a complicated software that requires high performance or more fitting language to formulate your problem.
+[KRPC](https://krpc.github.io/krpc/) exposes interfaces from KSP so that you can control rockets with your own program. There is a similar project, called [kOS](https://ksp-kos.github.io/KOS/), which introduces its own programming language called Kerboscript. The main advantage of kOS is that it runs within the game engine, so the interface with the game is more robust and it synchronizes with the physics very nicely. You can guarantee that your control loops will work with the right timing, so is perfect for a Kerbal [RTOS](https://en.wikipedia.org/wiki/Real-time_operating_system). However, because of the need to learn its own programming language, you need to rely on libraries that other players have created. This is not ideal when you want to create a complicated software that requires high performance or more fitting language to formulate your problem.
 
 I will not be programming in kOS much, but I keep it in mind as an option if a real-time control requirement becomes strict enough that I need to guarantee a short interval between each command.
 
-KRPC officially supports C-namo, C#, C++, Java, Lua, and Python. I have personally used the python client before, so I still use the Python documentation when looking for API for Julia, even though they have different naming conventions.
+KRPC officially supports C-nano, C#, C++, Java, Lua, and Python. I have personally used the python client before, so I still use the Python documentation when looking for API for Julia, even though they have different naming conventions.
 
 ## KRPC.jl
 
