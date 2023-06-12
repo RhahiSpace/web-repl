@@ -43,6 +43,16 @@ title = "dream"
   show_more_url = "dream"
 
 [[entries]]
+title = "build"
+
+  [entries.post_list]
+  section = "build"
+  limit = 5
+  show_more = true
+  show_more_text = "more..."
+  show_more_url = "build"
+
+[[entries]]
 title = "learn"
 
   [entries.post_list]

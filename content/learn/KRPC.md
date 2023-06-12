@@ -2,7 +2,7 @@
 title: "KRPC"
 date: 2023-06-12T21:41:00+02:00
 mathjax: false
-draft: true
+draft: false
 series: fly to Karman line and back
 tags: []
 ---
