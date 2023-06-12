@@ -1,6 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " }}"
-date: {{ now.Format "2006-01-02" }}
+date: {{ .Date }}
 mathjax: false
 draft: true
 series:
