@@ -2,3 +2,6 @@
 .vscode
 public/
 resources/
+*_old.*
+*_old.*
+/content/archive
