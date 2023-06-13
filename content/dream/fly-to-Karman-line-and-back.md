@@ -13,19 +13,19 @@ tags: []
 
 ### Karman line at the edge of space
 
-[Kármán line](https://en.wikipedia.org/wiki/K%C3%A1rm%C3%A1n_line) defines altitude of 100 km as a boundary between the Earth atmosphere and space. Like many things in life, there is no such clear boundary between the Earth atmosphere and space. People proposed various altitudes for various reasons, some based on "can there be a spaceplane 'flying' at this altitude?", others based on thoughts on "lift or centrifugal force, which is more dominant?", and another based on "is it possible to orbit a satellite with this altitude?".
+[Kármán line](https://en.wikipedia.org/wiki/K%C3%A1rm%C3%A1n_line) defines altitude of 100 km as a boundary between the Earth atmosphere and space. Like many things in life, there is no such clear boundary. People proposed various altitudes for different reasons; some based on "can there be a spaceplane 'flying' at this altitude?", some based on thoughts on "lift vs. centrifugal force", and some based on "is there a possibility of having a satellite with the altitude?".
 
-[FAI](https://www.fai.org/) defines this boundary as a well rounded number of 100 km. While this number will not serve any useful purpose in engineering, it does in context outside of engineering, such as law making, or in KSP contarcts. So, our mission is to program and launch a rocket that will reach at least 100 km. So how do we build a rocket that can go up that high?
+[FAI](https://www.fai.org/) defines this boundary as a well rounded number of 100 km. While this number will not serve any useful purpose in engineering, it does in contexts outside of engineering, such as law making and KSP contracts. Our mission is to program and launch a rocket that will reach at least 100 km. So how do we build a rocket that can go up that high?
 
 ### Two approaches to Kerbal rocketry
 
-I contrast two approaches for moving a project like this forward. One approach is called *just do it*, and another may be called *work out the math*. Kerbal Space Program gives us a very nice iterative tool that lets us build fast and break things, for free. This process is enjoyable, and for a simple goal like this, it is the right approach.
+I contrast two approaches for moving a project like this forward. One approach is called *just do it*, and another may be called *work out the math*. Kerbal Space Program gives us a very nice iterative tool that lets us build fast and break things, and do it for free. This process is enjoyable, and for a simple goal like this, it is the right approach.
 
-However, when we want to iterate and sharpen the approaches, we need to also understand why the various attempts we made from *just do it* worked, extract out the essence of it, and build upon this knowledge. This process of "flying desks" is more tedious. It involves learning the science, planning the missions, and processing the data and comparing them with previous expectations.
+However, when we want to sharpen our tools and approaches, we need to also understand why the various attempts we made from *just do it* worked or not, extract out the essence, and build upon this knowledge. This process of "flying desks" is more tedious. It involves learning the science, planning the missions, and processing the data and comparing them with previous expectations.
 
-Both approaches are important. Trying out various approaches out gives us intuition, and let us prune out approaches that don't work well at early stages. Going through textbooks and working out maths gives understanding, and provides the precision needed to sharpen the tools we are going to make.
+Both approaches are important. Trying out various approaches gives us the intuition, and let us discover approaches that don't work well in its early stage. Going through textbooks and working out maths gives understanding and the precision needed to sharpen the tools we are going to make.
 
-For this mission, I will lean on the *just do it* side, as the goal is simple and design limitation (available rocket parts) are limited enough that there is not much desicion space.
+For this mission, I will lean on the *just do it* side, as the goal is simple and design limitation (available rocket parts) are limited enough that there is not many desicions to make.
 
 ## Series plan
 
